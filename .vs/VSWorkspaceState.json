@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\server",
+    "\\server\\src",
+    "\\server\\src\\controllers",
+    "\\server\\src\\models",
+    "\\server\\src\\policies"
+  ],
+  "SelectedNode": "\\server\\src\\policies\\AuthenticationControllerPolicy.js",
+  "PreviewInSolutionExplorer": false
+}

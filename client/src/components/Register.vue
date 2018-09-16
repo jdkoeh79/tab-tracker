@@ -7,14 +7,19 @@
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
+          <form
+            name="tab-tracker-form"
+            autocomplete="off">
           <v-text-field
             label="Email"
             v-model="email" />
           <br>
           <v-text-field
+            label="Password"
             type="password"
             v-model="password"
-            label="Password" />
+            autocomplete="new-password" />
+          </form>
           <br>
           <div class="error" v-html="error" />
           <br>

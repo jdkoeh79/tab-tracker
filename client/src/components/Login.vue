@@ -12,9 +12,9 @@
             v-model="email" />
           <br>
           <v-text-field
+            label="Password"
             type="password"
-            v-model="password"
-            label="Password" />
+            v-model="password" />
           <br>
           <div class="err" v-html="error" />
           <br>

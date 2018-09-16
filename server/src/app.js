@@ -13,7 +13,7 @@ app.use(cors())
 
 require('./routes')(app)
 
-sequelize.sync()
+sequelize.sync() // pass { force: true } to empty the database
   .then(() => {
     app.listen(process.env.PORT || 8081)
     console.log(`Server started on port ${config.port}`)

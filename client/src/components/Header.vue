@@ -17,18 +17,18 @@
 
     <v-toolbar-items>
       <v-btn flat>
-        <router-link to="register">
-          Sign Up
-        </router-link>
-      </v-btn>
-      <v-btn flat>
         <router-link to="login">
           Login
         </router-link>
       </v-btn>
       <v-btn flat>
-        Logout
+        <router-link to="register">
+          Sign Up
+        </router-link>
       </v-btn>
+      <!-- <v-btn flat>
+        Logout
+      </v-btn> -->
     </v-toolbar-items>
 
   </v-toolbar>
@@ -43,5 +43,9 @@ export default {
 <style scoped>
 .home {
   cursor: pointer;
+}
+.application a {
+  color: white;
+  text-decoration: none
 }
 </style>

@@ -16,12 +16,16 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn flat>
+      <v-btn
+        flat
+        v-if="!$store.state.isUserLoggedIn">
         <router-link to="login">
           Login
         </router-link>
       </v-btn>
-      <v-btn flat>
+      <v-btn
+        flat
+        v-if="!$store.state.isUserLoggedIn">
         <router-link to="register">
           Sign Up
         </router-link>

@@ -6,16 +6,18 @@
       </router-link>
     </v-toolbar-title>
 
-    <!-- TODO: Implement Me -->
-    <!-- <v-toolbar-items>
+    <v-toolbar-items>
       <v-btn flat>
-        Browse
+        <router-link to="songs">
+          Browse
+        </router-link>
       </v-btn>
-    </v-toolbar-items> -->
+    </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
+
       <v-btn
         flat
         v-if="!$store.state.isUserLoggedIn">
@@ -23,6 +25,7 @@
           Login
         </router-link>
       </v-btn>
+
       <v-btn
         flat
         v-if="!$store.state.isUserLoggedIn">
@@ -30,9 +33,16 @@
           Sign Up
         </router-link>
       </v-btn>
-      <!-- <v-btn flat>
-        Logout
-      </v-btn> -->
+
+      <v-btn
+        flat
+        v-if="$store.state.isUserLoggedIn"
+        @click="logout">
+        <router-link to="register">
+          Log Out
+        </router-link>
+      </v-btn>
+
     </v-toolbar-items>
 
   </v-toolbar>
@@ -40,7 +50,15 @@
 
 <script>
 export default {
-
+  methods: {
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'root'
+      })
+    }
+  }
 }
 </script>
 

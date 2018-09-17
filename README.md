@@ -1,5 +1,5 @@
 # tab-tracker
-Vue.JS / Express.JS Youtube Tutorial by Cody Seibert @freecodecamp
+Vue.JS / Express.JS Youtube Tutorial by Cody Seibert @freeCodeCamp.org
 
 https://www.youtube.com/watch?v=Fa4cRMaTDUI&amp;t=2677s
 

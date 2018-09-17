@@ -2,13 +2,27 @@
  <v-layout>
     <v-flex xs8 offset-xs2>
       <panel title="Songs">
-        <div
-          v-for="song in songs"
+
+        <v-btn
+          :to="{name: 'songs-create'}"
+          slot="action"
+          class="blue-grey darken-4"
+          medium
+          absolute
+          right
+          middle
+          fab>
+          <v-icon>add</v-icon>
+        </v-btn>
+
+        <div v-for="song in songs"
           :key="song.id">
-          {{song.title}}
-          {{song.artist}}
-          {{song.album}}
+          Title: {{song.title}}<br>
+          Artist: {{song.artist}}<br>
+          Album: {{song.album}}<br>
+          Genre: {{song.genre}}<br><br>
         </div>
+
       </panel>
     </v-flex>
   </v-layout>
@@ -17,6 +31,7 @@
 <script>
 import SongsService from '@/services/SongsService'
 import Panel from '@/components/Panel'
+
 export default {
   components: {
     Panel

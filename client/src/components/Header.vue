@@ -7,44 +7,37 @@
     </v-toolbar-title>
 
     <v-toolbar-items>
-      <v-btn flat>
-        <router-link to="songs">
+      <v-btn flat
+        :to="{name: 'songs'}">
           Browse
-        </router-link>
       </v-btn>
     </v-toolbar-items>
 
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-
       <v-btn
         flat
-        v-if="!$store.state.isUserLoggedIn">
-        <router-link to="login">
+        v-if="!$store.state.isUserLoggedIn"
+        :to="{name: 'login'}">
           Login
-        </router-link>
       </v-btn>
 
       <v-btn
         flat
-        v-if="!$store.state.isUserLoggedIn">
-        <router-link to="register">
+        v-if="!$store.state.isUserLoggedIn"
+        :to="{name: 'login'}">
           Sign Up
-        </router-link>
       </v-btn>
 
       <v-btn
         flat
         v-if="$store.state.isUserLoggedIn"
-        @click="logout">
-        <router-link to="register">
+        @click="logout"
+        :to="{name: 'register'}">
           Log Out
-        </router-link>
       </v-btn>
-
     </v-toolbar-items>
-
   </v-toolbar>
 </template>
 

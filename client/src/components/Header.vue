@@ -26,7 +26,7 @@
       <v-btn
         flat
         v-if="!$store.state.isUserLoggedIn"
-        :to="{name: 'login'}">
+        :to="{name: 'register'}">
           Sign Up
       </v-btn>
 

@@ -11,6 +11,19 @@
         <div class="song-genre">
           {{song.genre}}
         </div>
+
+        <router-link v-if="song.id"
+          :to="{
+            name: 'song-edit',
+            params: {songId: song.id}
+          }">
+          <v-btn
+            class="blue-grey darken-1"
+            dark>
+            Edit
+          </v-btn>
+        </router-link>
+
       </v-flex>
 
       <v-flex xs6>
@@ -49,11 +62,15 @@ export default {
 }
 
 .album-image {
-  width: 100%;
+  width: 85%;
   margin: 0 auto;
 }
 
 .meta {
   height: 400px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

@@ -29,7 +29,21 @@ module.exports = {
       res.send(song)
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying create the song.'
+        error: 'A server error occured while trying to create the song.'
+      })
+    }
+  },
+  async put (req, res) {
+    try {
+      await Song.update(req.body, {
+        where: {
+          id: req.params.songId
+        }
+      })
+      res.send(req.body)
+    } catch (err) {
+      res.status(500).send({
+        error: 'A server error occured while trying to update the song.'
       })
     }
   }

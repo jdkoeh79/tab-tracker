@@ -53,6 +53,7 @@
 
           <v-textarea
             label="Tab"
+            class="textarea"
             rows="15"
             required
             :rules="[required]"
@@ -60,6 +61,7 @@
 
           <v-textarea
             label="Lyrics"
+            class="textarea"
             rows="15"
             required
             :rules="[required]"
@@ -68,11 +70,22 @@
         </panel>
 
         <div class="err" v-html="error" />
+        <router-link v-if="song.id"
+          :to="{
+            name: 'song',
+            params: {songId: song.id}
+          }">
+          <v-btn
+            dark
+            class="blue-grey darken-1">
+            Cancel
+          </v-btn>
+        </router-link>
         <v-btn
           dark
           class="blue-grey darken-1"
-          @click="create">
-          Create Song
+          @click="save">
+          Save Song
         </v-btn>
       </div>
     </v-flex>
@@ -101,7 +114,7 @@ export default {
     }
   },
   methods: {
-    async create () {
+    async save () {
       this.error = null
       const areAllFieldsFilledIn = Object
         .keys(this.song)
@@ -110,14 +123,26 @@ export default {
         this.error = 'Please fill in all the required fields.'
         return
       }
+      const songId = this.$store.state.route.params.songId
       try {
-        await SongsService.post(this.song)
+        await SongsService.put(this.song)
         this.$router.push({
-          name: 'songs'
+          name: 'song',
+          params: {
+            songId: songId
+          }
         })
       } catch (err) {
-        console.log('Create Song error: ' + err)
+        console.log('Edit Song error: ' + err)
       }
+    }
+  },
+  async mounted () {
+    try {
+      const songId = this.$store.state.route.params.songId
+      this.song = (await SongsService.fetchSong(songId)).data
+    } catch (err) {
+      console.log('Fetch Song error: ' + err)
     }
   },
   components: {
@@ -130,5 +155,17 @@ export default {
 <style scoped>
 .err {
   color: red;
+}
+
+.textarea {
+  width: 100%;
+  font-family: monospace;
+  border: none;
+  border-style: none;
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

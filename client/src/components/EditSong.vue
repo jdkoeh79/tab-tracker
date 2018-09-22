@@ -69,7 +69,7 @@
 
         </panel>
 
-        <div class="err" v-html="error" />
+        <div class="danger-alert" v-html="error" />
         <router-link v-if="song.id"
           :to="{
             name: 'song',
@@ -149,10 +149,6 @@ export default {
 </script>
 
 <style scoped>
-.err {
-  color: red;
-}
-
 .textarea {
   width: 100%;
   font-family: monospace;

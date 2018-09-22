@@ -67,7 +67,7 @@
 
         </panel>
 
-        <div class="err" v-html="error" />
+        <div class="danger-alert" v-html="error" />
         <v-btn
           dark
           class="blue-grey darken-1"
@@ -124,7 +124,4 @@ export default {
 </script>
 
 <style scoped>
-.err {
-  color: red;
-}
 </style>

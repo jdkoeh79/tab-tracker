@@ -28,7 +28,6 @@ import Tab from './Tab'
 import Metadata from './Metadata'
 import Lyrics from './Lyrics'
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 
 export default {
   data () {
@@ -41,7 +40,6 @@ export default {
     this.song = (await SongsService.fetchSong(songId)).data
   },
   components: {
-    Panel,
     Metadata,
     Lyrics,
     Tab,

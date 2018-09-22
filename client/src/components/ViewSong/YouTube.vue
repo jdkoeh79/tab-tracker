@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import YouTube from 'vue-youtube-embed'
 
 export default {
@@ -18,7 +17,6 @@ export default {
     'youtubeId'
   ],
   components: {
-    Panel,
     YouTube
   }
 }

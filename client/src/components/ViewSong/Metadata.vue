@@ -3,7 +3,7 @@
     <v-layout>
       <v-flex xs6>
         <div class="song-title">
-          {{song.title}}
+          {{song.artist}}
         </div>
         <div class="song-artist">
           {{song.artist}}
@@ -36,15 +36,10 @@
 </template>
 
 <script>
-import Panel from '../Panel'
-
 export default {
   props: [
     'song'
-  ],
-  components: {
-    Panel
-  }
+  ]
 }
 </script>
 

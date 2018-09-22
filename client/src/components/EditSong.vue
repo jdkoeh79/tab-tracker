@@ -94,7 +94,6 @@
 
 <script>
 import SongsService from '@/services/SongsService'
-import Panel from '@/components/Panel'
 
 export default {
   data () {
@@ -144,9 +143,6 @@ export default {
     } catch (err) {
       console.log('Fetch Song error: ' + err)
     }
-  },
-  components: {
-    Panel
   }
 }
 

@@ -11,11 +11,11 @@
     </v-layout>
 
     <v-layout class="mt-4">
-      <v-flex xs5 offset-xs1>
+      <v-flex xs4 offset-xs1>
         <lyrics :song="song" />
       </v-flex>
 
-      <v-flex xs5 class="ml-4">
+      <v-flex xs6 class="ml-4">
         <tab :song="song" />
       </v-flex>
     </v-layout>

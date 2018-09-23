@@ -70,6 +70,7 @@
         </panel>
 
         <div class="danger-alert" v-html="error" />
+
         <router-link v-if="song.id"
           :to="{
             name: 'song',
@@ -81,6 +82,7 @@
             Cancel
           </v-btn>
         </router-link>
+
         <v-btn
           dark
           class="blue-grey darken-1"

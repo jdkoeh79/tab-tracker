@@ -68,6 +68,18 @@
         </panel>
 
         <div class="danger-alert" v-html="error" />
+
+        <router-link
+          :to="{
+            name: 'songs'
+          }">
+          <v-btn
+            dark
+            class="blue-grey darken-1">
+            Cancel
+          </v-btn>
+        </router-link>
+
         <v-btn
           dark
           class="blue-grey darken-1"
@@ -124,4 +136,7 @@ export default {
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
 </style>

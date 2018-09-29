@@ -33,8 +33,10 @@ module.exports = {
           error: 'you already have this as a bookmark'
         })
       }
-
-      const newBookmark = await Bookmark.create(req.body)
+      const newBookmark = await Bookmark.create({
+        SongId: songId,
+        UserId: userId
+      })
       res.send(newBookmark)
     } catch (err) {
       res.status(500).send({

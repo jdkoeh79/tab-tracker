@@ -23,11 +23,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import YouTube from './YouTube'
 import Tab from './Tab'
 import Metadata from './Metadata'
 import Lyrics from './Lyrics'
 import SongsService from '@/services/SongsService'
+import SongHistoryServce from '@/services/SongHistoryService'
 
 export default {
   data () {
@@ -35,9 +37,23 @@ export default {
       song: {}
     }
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn',
+      'user',
+      'route'
+    ])
+  },
   async mounted () {
-    const songId = this.$store.state.route.params.songId
+    const songId = this.route.params.songId
     this.song = (await SongsService.fetchSong(songId)).data
+
+    if (this.isUserLoggedIn) {
+      SongHistoryServce.post({
+        songId: songId,
+        userId: this.user.id
+      })
+    }
   },
   components: {
     Metadata,

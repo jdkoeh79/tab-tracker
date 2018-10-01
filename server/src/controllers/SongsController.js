@@ -27,7 +27,7 @@ module.exports = {
       res.send(songs)
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying to fetch songs.'
+        error: 'A server error occurred while trying to fetch songs.'
       })
     }
   },
@@ -37,7 +37,7 @@ module.exports = {
       res.send(song)
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying to fetch songs.'
+        error: 'A server error occurred while trying to fetch songs.'
       })
     }
   },
@@ -47,7 +47,7 @@ module.exports = {
       res.send(song)
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying to create the song.'
+        error: 'A server error occurred while trying to create the song.'
       })
     }
   },
@@ -61,7 +61,7 @@ module.exports = {
       res.send(req.body)
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying to update the song.'
+        error: 'A server error occurred while trying to update the song.'
       })
     }
   }

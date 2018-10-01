@@ -52,7 +52,7 @@ module.exports = {
       })
     } catch (err) {
       res.status(500).send({
-        error: 'A server error occured while trying to log in. Please try again.'
+        error: 'A server error occurred while trying to log in. Please try again.'
       })
     }
   }

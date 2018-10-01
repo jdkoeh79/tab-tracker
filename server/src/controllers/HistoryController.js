@@ -30,11 +30,36 @@ module.exports = {
   async post (req, res) {
     try {
       const { songId, userId } = req.body
-      const historyEntry = await History.create({
-        SongId: songId,
-        UserId: userId
+      const historyEntry = await History.findOne({
+        where: {
+          UserId: userId,
+          SongId: songId
+        }
       })
-      res.send(historyEntry)
+      if (historyEntry) {
+        try {
+          let viewCount = historyEntry.viewCount
+          viewCount++
+          await History.update({
+            viewCount: viewCount
+          },
+          {
+            where: {
+              UserId: userId,
+              SongId: songId
+            }
+          })
+          res.send(historyEntry)
+        } catch (err) {
+          console.log('update error', err)
+        }
+      } else {
+        const historyEntry = await History.create({
+          SongId: songId,
+          UserId: userId
+        })
+        res.send(historyEntry)
+      }
     } catch (err) {
       res.status(500).send({
         error: 'A server error occurred while trying to create the history entry'

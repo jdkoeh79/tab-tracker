@@ -6,6 +6,9 @@
       :pagination.sync="pagination"
       :items="historyEntries">
       <template slot="items" slot-scope="props">
+        <td class="text-xs-left">
+          {{ props.item.viewCount }}
+        </td>
         <td class="text-xs-right">
           {{ props.item.title }}
         </td>
@@ -26,6 +29,11 @@ export default {
     return {
       headers: [
         {
+          text: 'Views',
+          value: 'viewCount',
+          align: 'left'
+        },
+        {
           text: 'Title',
           value: 'title',
           align: 'right'
@@ -37,7 +45,7 @@ export default {
         }
       ],
       pagination: {
-        sortBy: 'createdAt',
+        sortBy: 'updatedAt',
         descending: true
       },
       historyEntries: []
